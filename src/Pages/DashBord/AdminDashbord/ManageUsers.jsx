@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../CustomHooks/useAxiosSecure";
-// import Swal from "sweetalert2";
 import { AiOutlineUserSwitch, AiOutlineVerified } from "react-icons/ai";
 import { useTitle } from "../../../CustomHooks/useTitle";
 

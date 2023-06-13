@@ -20,22 +20,26 @@ const Classes = () => {
 
 
     const handleSelect =async (cls) => {
-        console.log("class", cls);
-
         try {
-            const res = await axiosSecure.post('/selectedClass', cls);
-            console.log(res.data);
+            const res = await axiosSecure.post('/selectedClasses', cls);
             if (res.data.insertedId) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Your course has been saved',
+                    title: 'Your course has been saved, please see the dashbord',
                     showConfirmButton: false,
                     timer: 1500
                 })
             }
         } catch (error) {
-            console.log(error);
+            if (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: `<a href="">${error.message}</a>`
+                })
+            }
         }
     }
     return (
