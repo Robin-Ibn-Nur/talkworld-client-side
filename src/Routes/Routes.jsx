@@ -15,7 +15,9 @@ import Register from "../Pages/Authentication/Register/Register";
 import InstructorsClasses from "../Pages/Instructors/InstructorsClasses";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
-// import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Payment from "../Pages/DashBord/Payment/Payment";
+
+
 
 export const router = createBrowserRouter([
 
@@ -63,6 +65,11 @@ export const router = createBrowserRouter([
         path: "dashbord",
         element: <Dashbord></Dashbord>,
         children: [
+            
+            {
+                path: "payment",
+                element: <Payment></Payment>
+            },
             // student dashbord
             {
                 path: "mySelectedClass",
