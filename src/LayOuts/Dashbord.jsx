@@ -1,7 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import DashBordMenu from "../components/Menu/DashBordMenu";
+import useAuth from "../CustomHooks/useAuth";
+import useAdmin from "../CustomHooks/useAdmin";
+import useInstructor from "../CustomHooks/useInstructor";
 
 const Dashbord = () => {
+    const { user } = useAuth();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     return (
         <div className="drawer lg:drawer-open">
@@ -9,7 +15,7 @@ const Dashbord = () => {
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
 
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open SideBar</label>
+                <label htmlFor="my-drawer-2" className="btn btn-outline mb-5  drawer-button lg:hidden">Open Menu</label>
                 <Outlet></Outlet>
 
             </div>
@@ -17,6 +23,26 @@ const Dashbord = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-[#008080] text-base-content">
                     {/* Sidebar content here */}
+                    <Link to="/" className="text-2xl font-bold w-[55px] rounded-full p-5 text-center my-5 text-white border">
+                        <span className="text-5xl mr-1">T</span>
+                        <span>a</span>
+                        <span>l</span>
+                        <span>k</span>
+                        <span className="text-5xl">W</span>
+                        <span>o</span>
+                        <span>r</span>
+                        <span>l</span>
+                        <span>d</span>
+                    </Link>
+                    <hr />
+                    <h3 className="font-bold texl-xl">Welcome {user?.displayName}</h3>
+                    {
+                        isAdmin && <p className="font-semibold">Status: Admin</p>
+                        && isInstructor && <p className="font-semibold">Status: Instructor</p>
+                        || !isAdmin && !isInstructor &&
+                        <p className="font-semibold">Status: Student</p>
+                    }
+                    <br />
                     <DashBordMenu></DashBordMenu>
                 </ul>
 

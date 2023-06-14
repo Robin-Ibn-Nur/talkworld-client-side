@@ -11,7 +11,7 @@ const Menu = () => {
                     ?
                     "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                     :
-                    "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                    "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
             Home
         </NavLink>
         <NavLink
@@ -21,7 +21,7 @@ const Menu = () => {
                     ?
                     "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                     :
-                    "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                    "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
             Instructors
         </NavLink>
         <NavLink
@@ -31,7 +31,7 @@ const Menu = () => {
                     ?
                     "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                     :
-                    "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                    "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
             Classes
         </NavLink>
         {
@@ -43,7 +43,7 @@ const Menu = () => {
                             ?
                             "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                             :
-                            "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                            "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
                     Dashboard
                 </NavLink>
             </>
@@ -56,7 +56,7 @@ const Menu = () => {
                                 ?
                                 "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 :
-                                "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                                "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
                         Log In
                     </NavLink>
                     <span className="inline mx-2">or</span>
@@ -67,7 +67,7 @@ const Menu = () => {
                                 ?
                                 "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 :
-                                "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
+                                "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>
                         Register
                     </NavLink>
                 </>

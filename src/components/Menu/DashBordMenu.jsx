@@ -7,15 +7,15 @@ const DashBordMenu = () => {
     const [isInstructor] = useInstructor()
     const [isAdmin] = useAdmin()
 
-    const dashbordMenu = <>
+    const dashbordMenu = <div className="flex flex-col font-serif texl-2xl">
         {!isAdmin && !isInstructor && <>
             <NavLink to="/dashbord/mySelectedClass"
                 className={({ isActive }) =>
                     isActive
                         ?
-                        "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                        "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                         :
-                        "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                 }>My Selected Class</NavLink>
             <NavLink
@@ -23,9 +23,9 @@ const DashBordMenu = () => {
                 className={({ isActive }) =>
                     isActive
                         ?
-                        "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                        "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                         :
-                        "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                 }>My Enrolled Class</NavLink>
         </>}
@@ -36,9 +36,9 @@ const DashBordMenu = () => {
                     className={({ isActive }) =>
                         isActive
                             ?
-                            "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                             :
-                            "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                     }>Add a Class</NavLink>
                 <NavLink
@@ -46,9 +46,9 @@ const DashBordMenu = () => {
                     className={({ isActive }) =>
                         isActive
                             ?
-                            "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                             :
-                            "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                     }>My Classes</NavLink>
             </>
@@ -60,9 +60,9 @@ const DashBordMenu = () => {
                     className={({ isActive }) =>
                         isActive
                             ?
-                            "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                             :
-                            "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                     }>Manage Classes</NavLink>
                 <NavLink
@@ -70,16 +70,18 @@ const DashBordMenu = () => {
                     className={({ isActive }) =>
                         isActive
                             ?
-                            "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
                             :
-                            "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                            "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                     }>Manage Users</NavLink>
             </>
         }
-        <Link to="/" className="hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium">Go Back to Home</Link>
-    </>
+        <hr className="mt-5" />
+        <Link to="/" className="hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">Go Back to Home</Link>
+    </div>
     return dashbordMenu
 };
+// hover: [#FF6600] hover: text - white transition - colors duration - 300
 
 export default DashBordMenu;

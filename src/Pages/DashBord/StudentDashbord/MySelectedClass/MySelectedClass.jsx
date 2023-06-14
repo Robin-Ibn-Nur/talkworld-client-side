@@ -4,7 +4,7 @@ import useSelectedClass from "../../../../CustomHooks/useSelectedClass";
 
 const MySelectedClass = () => {
     const [user, selectedClasses, refetch, axiosSecure] = useSelectedClass()
-    
+
     // TODO: Delete button doesent work properly
     const handleDelete = (id) => {
 
@@ -43,7 +43,7 @@ const MySelectedClass = () => {
     return (
         <div className="container font-serif">
             <h1 className="text-2xl text-center font-bold mb-5">{user?.displayName}</h1>
-            {!selectedClasses ? <h1 className="text-2xl font-bold">No Classes Selected at the Moment</h1> :
+            {!selectedClasses ? <h1 className="text-2xl text-center font-bold">Opps! You have not selected any classes</h1> :
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead>

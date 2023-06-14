@@ -16,7 +16,7 @@ const ReUsableButton = ({ text }) => {
         }).catch(error=>console.log(error))
     }
     return (
-        <input onClick={handleLogOut} type="submit" className="hover:bg-[#FF6600] text-white py-2 px-4 rounded-lg" value={text} />
+        <input onClick={handleLogOut} type="submit" className="hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" value={text} />
     );
 };
 

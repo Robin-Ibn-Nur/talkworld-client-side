@@ -17,7 +17,7 @@ const PaymentFor = ({ data }) => {
                     <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">Instructor: {instructorName}</p>
                     <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">Available Seats: {availableSeats}</p>
                     <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">Price: ${price}</p>
-                    <a href={`mailto:${instructorEmail}`} className="bg-white text-blue-500 font-semibold py-2 px-4 rounded hover:bg-blue-500 hover:text-white transition-colors duration-300">
+                    <a href={`mailto:${instructorEmail}`} className="bg-white text-blue-500 font-semibold py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors duration-300">
                         Contact Instructor
                     </a>
                 </div>

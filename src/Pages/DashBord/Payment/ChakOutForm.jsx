@@ -104,14 +104,14 @@ const ChakOutForm = ({ data }) => {
                             },
                         },
                     }}
-                    className="w-full container border border-gray-300 rounded"
+                    className="w-full h-8 container border border-gray-300 rounded"
                 />
                 <input type="text" name="" id="" />
             </div>
             <button
                 type="submit"
                 disabled={!stripe || !clientSecret || loading}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-white btn btn-outline text-blue-500 font-semibold py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors duration-300  disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {loading ? 'Processing...' : 'Pay Now'}
             </button>

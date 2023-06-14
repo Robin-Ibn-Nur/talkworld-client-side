@@ -10,17 +10,19 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
     const data = useLoaderData();
 
-    
+
     return (
-        <div>
-            <h1>Your will be payfor</h1>
-            <div className="container my-5 hidden">
+        <div className="container font-serif grid sm:grid-cols-1 lg:grid-cols-2 lg:items-center gap-5">
+            <div>
                 <PaymentFor data={data}></PaymentFor>
             </div>
 
-            <Elements stripe={stripePromise}>
-                <ChakOutForm data={data}></ChakOutForm>
-            </Elements>
+            <div className="text-center space-y-5">
+                <h1 className="text-2xl font-bold ">Payment Through online</h1>
+                <Elements stripe={stripePromise}>
+                    <ChakOutForm data={data}></ChakOutForm>
+                </Elements>
+            </div>
         </div>
     );
 };
