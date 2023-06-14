@@ -1,19 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../CustomHooks/useAxiosSecure";
 import SellectedClass from "./SellectedClass";
-import useAuth from "../../../../CustomHooks/useAuth";
 import Swal from "sweetalert2";
+import useSelectedClass from "../../../../CustomHooks/useSelectedClass";
 
 const MySelectedClass = () => {
-    const { user } = useAuth();
-    const [axiosSecure] = useAxiosSecure();
-
-    const { data: selectedClasses = [], refetch } = useQuery(["selectedClasses"], async () => {
-        const res = await axiosSecure.get('/selectedClasses');
-        return res.data;
-    })
-
-
+    const [user, selectedClasses, refetch, axiosSecure] = useSelectedClass()
+    
     // TODO: Delete button doesent work properly
     const handleDelete = (id) => {
 

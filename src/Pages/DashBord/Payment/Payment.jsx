@@ -1,21 +1,25 @@
-import "./Payment.css"
+import { useLoaderData } from "react-router-dom";
+import PaymentFor from "./PaymentFor";
+import ChakOutForm from "./ChakOutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js'
-import ChackOutForm from '../StudentDashbord/MySelectedClass/ChackOutForm';
-const ELEMENTS_OPTIONS = {
-    fonts: [
-        {
-            cssSrc: 'https://fonts.googleapis.com/css?family=Roboto',
-        },
-    ],
-};
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+
 const Payment = () => {
+    const data = useLoaderData();
+
+    
     return (
-        <div className="AppWrapper">
-            <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-                <ChackOutForm></ChackOutForm>
+        <div>
+            <h1>Your will be payfor</h1>
+            <div className="container my-5 hidden">
+                <PaymentFor data={data}></PaymentFor>
+            </div>
+
+            <Elements stripe={stripePromise}>
+                <ChakOutForm data={data}></ChakOutForm>
             </Elements>
         </div>
     );

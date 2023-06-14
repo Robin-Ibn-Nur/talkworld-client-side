@@ -32,7 +32,7 @@ const SellectedClass = ({ cls, index, handleDelete }) => {
                     {cls.isInstructor || cls.isAdmin ? (
                         <span className="text-gray-500 ml-2">Not Available</span>
                     ) : (
-                            <Link to="/dashbord/payment"
+                            <Link to={`/dashbord/payment/${cls._id}`}
                             className="bg-green-500 hover:bg-green-700 text-white px-2 py-1 rounded"
                             disabled={cls.availableSeats === 0}
                         >

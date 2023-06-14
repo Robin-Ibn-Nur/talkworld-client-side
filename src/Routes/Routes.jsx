@@ -65,9 +65,10 @@ export const router = createBrowserRouter([
         path: "dashbord",
         element: <Dashbord></Dashbord>,
         children: [
-            
+            // payment route
             {
-                path: "payment",
+                path: "payment/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/dashbord/payment/${params.id}`),
                 element: <Payment></Payment>
             },
             // student dashbord

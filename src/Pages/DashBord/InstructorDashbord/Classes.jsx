@@ -1,4 +1,4 @@
-const Classes = ({ item }) => {
+const Classes = ({ item}) => {
     return (
         <div className="bg-white rounded-md shadow-md p-4 mb-4">
             <h3 className="text-lg font-semibold mb-2">Language: {item.className}</h3>

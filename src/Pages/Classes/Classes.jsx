@@ -16,12 +16,25 @@ const Classes = () => {
         const res = await axiosSecure.get('/classes')
         return res.data;
     });
-    console.log(classes);
+    console.log("from class page",classes);
 
 
-    const handleSelect =async (cls) => {
+    const handleSelect = async (cls) => {
+
+        const newClass = {
+            availableSeats: cls.availableSeats,
+            classImage: cls.classImage,
+            className: cls.className,
+            instructorEmail: cls.instructorEmail,
+            instructorName: cls.instructorName,
+            price: cls.price,
+            status: cls.status,
+            userEmail: user?.email
+        };
         try {
-            const res = await axiosSecure.post('/selectedClasses', cls);
+            const res = await axiosSecure.post('/selectedClasses',
+                newClass);
+            console.log(res.data, newClass);
             if (res.data.insertedId) {
                 Swal.fire({
                     position: 'center',

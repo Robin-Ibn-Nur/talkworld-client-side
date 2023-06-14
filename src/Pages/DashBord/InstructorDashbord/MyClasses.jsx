@@ -9,7 +9,7 @@ const MyClasses = () => {
     const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: instructorData = [], refetch } = useQuery({
+    const { data: instructorData = [] } = useQuery({
         queryKey: ["instructorData", user?.email],
         enabled: !loading,
         queryFn: async () => {
@@ -21,7 +21,7 @@ const MyClasses = () => {
         <>
             <h2 className="text-2xl font-semibold mb-4">{user?.displayName}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 bg-gray-100 p-4 gap-5">
-                
+
                 {
                     instructorData.map(item => <Classes
                         key={item?._id}
