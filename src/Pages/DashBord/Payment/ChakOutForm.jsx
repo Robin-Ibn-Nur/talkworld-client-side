@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 const ChakOutForm = ({ data }) => {
     const { price } = data;
+    console.log(data);
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -62,11 +63,12 @@ const ChakOutForm = ({ data }) => {
                     className: data.className,
                     instructorEmail: data.instructorEmail,
                     instructorName: data.instructorName,
-                    status: "paid"
+                    status: "paid",
+                    id: data._id
                 };
 
                 const response = await axiosSecure.post('/payments', payment);
-
+                console.log(payment);
                 if (response.data.insertResult.insertedId) {
                     Swal.fire({
                         position: 'center',

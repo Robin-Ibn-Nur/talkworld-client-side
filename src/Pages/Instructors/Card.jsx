@@ -9,11 +9,7 @@ const Card = ({ instructor }) => {
                 <h3 className="font-medium mb-2">{name}</h3>
                 <h3 className="text-xl font-medium mb-2">{role}</h3>
                 <p className="text-gray-700 mb-2">Email: {email}</p>
-                {/* {numClasses && <p className="text-gray-700 mb-2">Number of Classes: {numClasses}</p>}
-                {classNames && (
-                    <p className="text-gray-700 mb-2">Classes Taken: {classNames.join(', ')}</p>
-                )} */}
-                <Link to={`/instructor/${email}`} className="btn btn-outline hover:bg-orange-500 text-blue-500">See Classes</Link>
+                <Link to="/" className="btn btn-outline hover:bg-orange-500 text-blue-500">See Classes</Link>
             </div>
         </div>
     );

@@ -3,8 +3,10 @@ import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import ReUsableButton from "../../components/ReUsableButton/ReUsableButton";
 import useAuth from "../../CustomHooks/useAuth";
 
+
 const Header = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
+   
 
     return (
         <div className="bg-[#008080] text-white top-fixed">

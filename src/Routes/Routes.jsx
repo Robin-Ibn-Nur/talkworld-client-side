@@ -12,7 +12,6 @@ import ManageClasses from "../Pages/DashBord/AdminDashbord/ManageClasses";
 import ManageUsers from "../Pages/DashBord/AdminDashbord/ManageUsers";
 import LogIn from "../Pages/Authentication/LogIn/LogIn";
 import Register from "../Pages/Authentication/Register/Register";
-import InstructorsClasses from "../Pages/Instructors/InstructorsClasses";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../Pages/DashBord/Payment/Payment";
@@ -46,12 +45,8 @@ export const router = createBrowserRouter([
             {
                 path: "register",
                 element: <Register></Register>
-            },
-            {
-                path: "/instructor/:email",
-                loader: async ({ params }) => fetch(`http://localhost:5000/instructor/${params?.email}`),
-                element: <InstructorsClasses></InstructorsClasses>,
-            },
+            }
+            
 
         ]
 

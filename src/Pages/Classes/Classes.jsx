@@ -16,7 +16,7 @@ const Classes = () => {
         const res = await axiosSecure.get('/classes')
         return res.data;
     });
-    console.log("from class page",classes);
+    console.log("from class page", classes);
 
 
     const handleSelect = async (cls) => {
@@ -57,40 +57,42 @@ const Classes = () => {
     }
     return (
         <div>
-            <h1 className="text-2xl font-bold my-5 hover:underline">Classes available {classes.length} but waiting for Approved</h1>
-
-            <div className="bg-gray-100 min-h-screen p-8">
+            <div className="bg-gray-100 min-h-screen p-8 my-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* cls.status === "pending" ? "" :  */}
-                    {classes.map((cls) => (<div
-                        key={cls._id}
-                        className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-200' : 'bg-white'
-                            }`}
-                    >
-                        <img
-                            src={cls.classImage}
-                            alt={cls.classImage}
-                            className="w-full h-40 object-cover mb-4 rounded"
-                        />
-                        <h2 className="text-xl font-bold mb-2">{cls.className}</h2>
-                        <p className="text-gray-600 mb-4">Instructor: {cls.instructorName}</p>
-                        <p className="mb-4">
-                            Available Seats: {cls.availableSeats === 0 ? '0 (Full)' : cls.availableSeats}
-                        </p>
-                        <p className="mb-4">Price: {cls.price}</p>
-                        {user ? (
-                            <button
-                                onClick={() => handleSelect(cls)}
-                                disabled={!user || isAdmin || isInstructor || cls.availableSeats === 0}
-                                className={`bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded ${!user || isAdmin || isInstructor || cls.availableSeats === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                                    }`}
+                    {classes.map((cls) => (
+                        cls.status === "approved" ? (
+                            <div
+                                key={cls._id}
+                                className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-200' : 'bg-white'}`}
                             >
-                                Select
-                            </button>
-                        ) : (
-                            <p className="text-red-500">Please log in to select the course.</p>
-                        )}
-                    </div>))}
+                                <img
+                                    src={cls.classImage}
+                                    alt={cls.classImage}
+                                    className="w-full h-40 object-cover mb-4 rounded"
+                                />
+                                <h2 className="text-xl font-bold mb-2">{cls.className}</h2>
+                                <div className="flex justify-between">
+                                    <p className="text-gray-600 mb-4">Instructor: {cls.instructorName}</p>
+                                    <p className="text-gray-600 mb-4">Status: {cls.status}</p>
+                                </div>
+                                <p className="mb-4">
+                                    Available Seats: {cls.availableSeats === 0 ? '0 (Full)' : cls.availableSeats}
+                                </p>
+                                <p className="mb-4">Price: {cls.price}</p>
+                                {user ? (
+                                    <button
+                                        onClick={() => handleSelect(cls)}
+                                        disabled={!user || isAdmin || isInstructor || cls.availableSeats === 0}
+                                        className={`bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md w-full text-xl font-medium ${!user || isAdmin || isInstructor || cls.availableSeats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    >
+                                        Select
+                                    </button>
+                                ) : (
+                                    <p className="text-red-500">Please log in to select the course.</p>
+                                )}
+                            </div>
+                        ) : <h1 key={cls._id}>Ops! No Class Found Here</h1>
+                    ))}
                 </div>
             </div>
         </div>

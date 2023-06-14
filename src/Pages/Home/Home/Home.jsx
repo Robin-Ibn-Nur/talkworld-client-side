@@ -1,4 +1,7 @@
+import ContactInfo from "../ContactInfo/ContactInfo";
 import PopulerClasses from "../PopulerClasses/PopulerClasses";
+import PopulerInstructor from "../PopulerInstructor/PopulerInstructor";
+import RelevantSection from "../RelevantSection/RelevantSection";
 import TopSlider from "../TopSlider/TopSlider";
 
 
@@ -7,9 +10,9 @@ const Home = () => {
         <div>
             <TopSlider></TopSlider>
             <PopulerClasses></PopulerClasses>
-            <div>Popular Instructors Section comming soon ...</div>
-            <div>Extra Section comming soon ...</div>
-            <div>Extra Section comming soon ...</div>
+            <PopulerInstructor></PopulerInstructor>
+            <RelevantSection></RelevantSection>
+            <ContactInfo></ContactInfo>
         </div>
     );
 };
