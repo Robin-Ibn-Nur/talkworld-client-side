@@ -8,25 +8,27 @@ const DashBordMenu = () => {
     const [isAdmin] = useAdmin()
 
     const dashbordMenu = <>
-        <NavLink to="/dashbord/mySelectedClass"
-            className={({ isActive }) =>
-                isActive
-                    ?
-                    "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    :
-                    "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        {!isAdmin && !isInstructor && <>
+            <NavLink to="/dashbord/mySelectedClass"
+                className={({ isActive }) =>
+                    isActive
+                        ?
+                        "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                        :
+                        "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 
-            }>My Selected Class</NavLink>
-        <NavLink
-            to="/dashbord/myEnrolledClass"
-            className={({ isActive }) =>
-                isActive
-                    ?
-                    "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    :
-                    "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                }>My Selected Class</NavLink>
+            <NavLink
+                to="/dashbord/myEnrolledClass"
+                className={({ isActive }) =>
+                    isActive
+                        ?
+                        "bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                        :
+                        "hover:bg-[#FF6600] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 
-            }>My Enrolled Class</NavLink>
+                }>My Enrolled Class</NavLink>
+        </>}
         {
             isInstructor && <>
                 <NavLink

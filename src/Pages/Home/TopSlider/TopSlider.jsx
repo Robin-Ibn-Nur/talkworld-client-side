@@ -24,8 +24,9 @@ const TopSlider = () => {
     return (
         <Carousel autoPlay dynamicHeight showArrows={true} >
             {
-                imagesArray.map((x, i) => <div key={i}>
-                    <img src={x?.image} alt=""  />
+                imagesArray.map((x, i) => <div
+                    key={i}>
+                    <img src={x?.image} className="container mx-auto" alt="" />
                     <p className="legend">{x?.legend}</p>
                 </div>)
             }

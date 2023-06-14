@@ -75,7 +75,7 @@ const ChakOutForm = ({ data }) => {
                         showConfirmButton: false,
                         timer: 1500
                     })
-                
+
                 }
             }
         } catch (error) {
@@ -104,8 +104,9 @@ const ChakOutForm = ({ data }) => {
                             },
                         },
                     }}
-                    className="p-4 border border-gray-300 rounded"
+                    className="w-full container border border-gray-300 rounded"
                 />
+                <input type="text" name="" id="" />
             </div>
             <button
                 type="submit"
@@ -114,7 +115,6 @@ const ChakOutForm = ({ data }) => {
             >
                 {loading ? 'Processing...' : 'Pay Now'}
             </button>
-            {/* Show any error or success messages */}
             {message && <div className="text-red-600">{message}</div>}
         </form>
     );
