@@ -2,8 +2,7 @@ import useAllClasses from "../../../CustomHooks/useAllClasses";
 
 const PopulerClasses = () => {
     const [populerClasses] = useAllClasses()
-    const topClasses = [...populerClasses].sort((a, b) => b.availableSeats - a.availableSeats);
-    
+    const topClasses = [...populerClasses].sort((a, b) => b.student - a.student);
     return (
         <div className="my-5">
             <h1 className="text-2xl font-bold my-5">populerClasses..</h1>
@@ -16,7 +15,7 @@ const PopulerClasses = () => {
                             className="w-full h-[200px] object-cover rounded"
                         />
                         <h3 className="mt-4 text-xl font-semibold">{classItem.className}</h3>
-                        <p className="mt-2">{classItem.availableSeats} students</p>
+                        <p className="mt-2">{classItem.student} students</p>
                     </div>
                 ))}
             </div>

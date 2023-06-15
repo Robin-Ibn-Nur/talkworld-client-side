@@ -5,7 +5,6 @@ import useAxiosSecure from "./useAxiosSecure";
 const useSelectedClass = () => {
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
-    // ["selectedClasses"]
     const { data: selectedClasses = [], refetch } = useQuery({
         queryKey: ['selectedClasses', user?.email],
         queryFn: async () => {

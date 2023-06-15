@@ -2,7 +2,7 @@ import useEnrolledClasses from "../../../../CustomHooks/useEnrolledClasses";
 import Enrolled from "./Enrolled";
 
 const MyEnrolledClasses = () => {
-    const [user, payments, refetch, axiosSecure] = useEnrolledClasses()
+    const [user, payments] = useEnrolledClasses()
     console.log(payments);
     return (
         <div className="container font-serif">

@@ -64,7 +64,8 @@ const ChakOutForm = ({ data }) => {
                     instructorEmail: data.instructorEmail,
                     instructorName: data.instructorName,
                     status: "paid",
-                    id: data._id
+                    id: data._id,
+                    student : Math.floor(Math.random() * 100) + 1
                 };
 
                 const response = await axiosSecure.post('/payments', payment);

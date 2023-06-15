@@ -13,8 +13,9 @@ import ManageUsers from "../Pages/DashBord/AdminDashbord/ManageUsers";
 import LogIn from "../Pages/Authentication/LogIn/LogIn";
 import Register from "../Pages/Authentication/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../Pages/DashBord/Payment/Payment";
+import PrivateRoutes from "./PrivateRoutes";
+import PaymentHistory from "../Pages/DashBord/StudentDashbord/PaymentHistory/PaymentHistory";
 
 
 
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "classes",
-                element: <PrivateRoutes><Classes></Classes></PrivateRoutes>
+                element: <Classes></Classes>
             },
             {
                 path: "login",
@@ -46,14 +47,10 @@ export const router = createBrowserRouter([
                 path: "register",
                 element: <Register></Register>
             }
-            
+
 
         ]
 
-    },
-    {
-        path: "errorPage",
-        element: <ErrorPage></ErrorPage>
     },
 
     // dashbord layout
@@ -70,11 +67,16 @@ export const router = createBrowserRouter([
             // student dashbord
             {
                 path: "mySelectedClass",
-                element: <MySelectedClass></MySelectedClass>
+                element: <PrivateRoutes><MySelectedClass></MySelectedClass></PrivateRoutes>
             },
             {
                 path: "myEnrolledClass",
-                element: <MyEnrolledClasses></MyEnrolledClasses>
+                element: <PrivateRoutes><MyEnrolledClasses></MyEnrolledClasses></PrivateRoutes>
+            },
+            {
+                path: "payMentHistory",
+                element: <PaymentHistory></PaymentHistory>
+                // element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
             },
             // instructor dashbord
             {

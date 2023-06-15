@@ -1,4 +1,4 @@
-import { HiOutlineLockClosed, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineEye, HiOutlineEyeOff, HiOutlineLockClosed, HiOutlineMail } from "react-icons/hi";
 import { useForm } from 'react-hook-form';
 import "./Login.css"
 import AuthenticationButton from "../../../components/AuthenticationButton/AuthenticationButton";
@@ -6,16 +6,24 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../CustomHooks/useAuth";
 import Swal from "sweetalert2";
 import GoogleButton from "../../../components/GoogleButton/GoogleButton";
+import { useState } from "react";
+
 
 const LogIn = () => {
     const { signIn } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
-    const { register, handleSubmit,reset, formState: { errors }, } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm();
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const onSubmit = (data) => {
-        console.log(data);
+        
         signIn( data?.email, data?.password)
             .then((result) => {
                 // Signed in 
@@ -37,7 +45,6 @@ const LogIn = () => {
                 console.log(errorMessage);
             });
         reset()
-        // Perform registration logic
     };
 
 
@@ -73,12 +80,21 @@ const LogIn = () => {
                                 <HiOutlineLockClosed className="h-5 w-5 text-gray-400"></HiOutlineLockClosed>
                             </span>
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 {...register('password', {
                                     required: true,
                                 })}
                                 className="input w-full max-w-xs asd pl-10 mt-1"
                             />
+                            <span
+                                className="absolute inset-y-0 right-0 pr-8 flex items-center cursor-pointer"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ?
+                                    <HiOutlineEye></HiOutlineEye>
+                                    : <HiOutlineEyeOff></HiOutlineEyeOff>}
+
+                            </span>
                         </div>
                     </div>
                     <AuthenticationButton text="Log In"></AuthenticationButton>

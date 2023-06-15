@@ -28,6 +28,16 @@ const DashBordMenu = () => {
                         "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
                 }>My Enrolled Class</NavLink>
+            <NavLink
+                to="/dashbord/payMentHistory"
+                className={({ isActive }) =>
+                    isActive
+                        ?
+                        "bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium"
+                        :
+                        "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
+
+                }>Payment History</NavLink>
         </>}
         {
             isInstructor && <>
