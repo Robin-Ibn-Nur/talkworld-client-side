@@ -13,7 +13,7 @@ const PrivateRouteLoader = () => {
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
-        }} className="window">
+        }} className="welcome">
             <div className="logo">
                 <p className="top">Welcome</p>
                 <p className="mid">TalkWorld<span>X</span></p>

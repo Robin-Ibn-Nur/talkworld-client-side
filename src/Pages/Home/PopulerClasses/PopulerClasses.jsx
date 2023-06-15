@@ -2,17 +2,13 @@ import usePopulerClasses from "../../../CustomHooks/usePopulerClasses";
 
 
 const PopulerClasses = () => {
-    const [populerSixClasses] = usePopulerClasses()
-    const topClasses = [...populerSixClasses].sort((a, b) => b.student - a.student);
+    const [populerClasses] = usePopulerClasses()
+    const topClasses = [...populerClasses].sort((a, b) => b.student - a.student);
     return (
         <div className="my-5">
-            
-            <h1 className="text-2xl font-bold my-5">
-                <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-                </span>
-                Populer Classes..
+
+            <h1 className="text-2xl w-50 border bg-gradient-to-r from-purple-500 to-blue-500 py-12  rounded text-yellow-400 font-serif text-center font-bold my-5">
+                ....Populer Classes....
             </h1>
             <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-4">
                 {topClasses.map((classItem) => (

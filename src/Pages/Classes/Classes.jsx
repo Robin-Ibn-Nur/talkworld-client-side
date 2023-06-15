@@ -64,7 +64,7 @@ const Classes = () => {
                         cls.status === "approved" && (
                             <div
                                 key={cls._id}
-                                className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-600 text-white' : 'bg-white'}`}
+                                className={`font-serif p-4 bg-white rounded shadow transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-[#008080] duration-300 hover:text-white ${cls.availableSeats === 0 ? 'bg-red-600 text-white' : 'bg-white'}`}
                             >
                                 <img
                                     src={cls.classImage}
@@ -72,9 +72,6 @@ const Classes = () => {
                                     className="w-full h-40 object-cover mb-4 rounded"
                                 />
                                 <h2 className="text-xl font-bold mb-2">{cls.className}</h2>
-                                {/* <div className="flex justify-between">
-                                    
-                                </div> */}
                                 <p className="text-gray-600 mb-4">Instructor: <span className="font-bold">{cls.instructorName}</span></p>
                                 <p className="text-gray-600 mb-4">Status: {cls.status}</p>
                                 <p className="mb-4">

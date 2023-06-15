@@ -3,12 +3,12 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const usePopulerClasses = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { data: populerSixClasses = [], refetch } = useQuery(['populerSixClasses'], async () => {
-        const res = await axiosSecure.get('/populerSixClasses')
+    const { data: populerClasses = [], refetch } = useQuery(['populerClasses'], async () => {
+        const res = await axiosSecure.get('/populerClasses')
         return res.data;
 
     })
-    return [populerSixClasses, axiosSecure, refetch]
+    return [populerClasses, axiosSecure, refetch]
 };
 
 export default usePopulerClasses;
