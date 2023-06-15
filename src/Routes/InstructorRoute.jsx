@@ -1,23 +1,21 @@
-import { Navigate, useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../CustomHooks/useAuth";
-import useAdmin from "../CustomHooks/useAdmin";
+import useInstructor from "../CustomHooks/useInstructor";
 import PrivateRouteLoader from "../components/Loader/PrivateRouteLoader/PrivateRouteLoader";
 
-
-
-const AdminRoute = ({ children }) => {
+const InstructorRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isInstructor, isInstructorLoading] = useInstructor();
     const location = useLocation();
 
-    if (loading || isAdminLoading) {
+    if (loading || isInstructorLoading) {
         return <PrivateRouteLoader></PrivateRouteLoader>
     }
 
-    if (user && isAdmin) {
+    if (user && isInstructor) {
         return children;
     }
     return <Navigate to="/" state={{ from: location }} replace></Navigate>
 };
 
-export default AdminRoute;
+export default InstructorRoute;

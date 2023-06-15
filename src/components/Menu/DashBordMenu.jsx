@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 import useInstructor from "../../CustomHooks/useInstructor";
 import useAdmin from "../../CustomHooks/useAdmin";
 import useStudent from "../../CustomHooks/useStudent";
-// import { HiOutlineSelector } from "react-icons/hi";
 import { AiOutlineCheckCircle, AiOutlineFolderAdd, AiOutlineFolderOpen, AiOutlineHome, AiOutlineSelect, AiOutlineWallet } from "react-icons/ai";
 import { SiGoogleclassroom } from "react-icons/si";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -13,8 +12,7 @@ const DashBordMenu = () => {
     const [isInstructor] = useInstructor();
     const [isAdmin] = useAdmin();
     const [isStudent] = useStudent();
-    console.log("dashBord menu - ", isStudent, isAdmin, isInstructor);
-
+    
     const dashbordMenu =
         <div className="flex flex-col font-serif texl-2xl">
 

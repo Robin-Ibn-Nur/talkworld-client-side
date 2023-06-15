@@ -14,10 +14,11 @@ import LogIn from "../Pages/Authentication/LogIn/LogIn";
 import Register from "../Pages/Authentication/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../Pages/DashBord/Payment/Payment";
-import PrivateRoutes from "./PrivateRoutes";
 import PaymentHistory from "../Pages/DashBord/StudentDashbord/PaymentHistory/PaymentHistory";
 import PrivateRouteLoader from "../components/Loader/PrivateRouteLoader/PrivateRouteLoader";
 import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
 
 
 
@@ -69,29 +70,29 @@ export const router = createBrowserRouter([
             {
                 path: "payment/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/dashbord/payment/${params.id}`),
-                element: <Payment></Payment>
+                element: <StudentRoute><Payment></Payment></StudentRoute>
             },
             // student dashbord
             {
                 path: "mySelectedClass",
-                element: <PrivateRoutes><MySelectedClass></MySelectedClass></PrivateRoutes>
+                element: <StudentRoute><MySelectedClass></MySelectedClass></StudentRoute>
             },
             {
                 path: "myEnrolledClass",
-                element: <PrivateRoutes><MyEnrolledClasses></MyEnrolledClasses></PrivateRoutes>
+                element: <StudentRoute><MyEnrolledClasses></MyEnrolledClasses></StudentRoute>
             },
             {
                 path: "payMentHistory",
-                element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
+                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
             },
             // instructor dashbord
             {
                 path: "addClass",
-                element: <PrivateRoutes><AddClasses></AddClasses></PrivateRoutes>
+                element: <InstructorRoute><AddClasses></AddClasses></InstructorRoute>
             },
             {
                 path: "myClasses",
-                element: <PrivateRoutes><MyClasses></MyClasses></PrivateRoutes>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
 
             // admin dashbord
