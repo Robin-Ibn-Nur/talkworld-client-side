@@ -1,5 +1,4 @@
 # TalkWorld - Language Learning Platform
-<h1 class="text-center">TalkWorld - Language Learning Platform</h1>
 
 ![TalkWorld Logo](talkworld-logo.png)
 
