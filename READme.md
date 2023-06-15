@@ -1,7 +1,7 @@
 # TalkWorld - Language Learning Platform
 
 
-![TalkWorld Logo](https://i.ytimg.com/vi/YmZhCxld2uU/hqdefault.jpg)
+![TalkWorld Logo](talkworld-logo.png)
 
 ## Features
 

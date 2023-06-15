@@ -84,45 +84,50 @@ const ManageClasses = () => {
     return (
         <div className="">
             <h3 className="text-2xl text-center mb-5 uppercase font-bold">{user?.displayName}</h3>
-            <table className="container mx-auto overflow-x-auto table-auto w-full border-collapse border border-gray-300 font-serif">
-                <thead className="text-sm tracking-tighter">
-                    <tr className="bg-gray-200">
-                        {tableHeaders.map((header) => (
-                            <th key={header.id}>{header.name}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody className="text-center tracking-tighter">
-                    {allClass.map((classItem) => (
-                        <tr key={classItem._id} >
-                            <td>
-                                <img src={classItem.classImage} alt="Class" className="w-10 h-10" />
-                            </td>
-                            <td>{classItem.className}</td>
-                            <td>{classItem.instructorName}</td>
-                            <td>{classItem.instructorEmail}</td>
-                            <td>{classItem.availableSeats}</td>
-                            <td>{classItem.price}</td>
-                            <td>{classItem.status}</td>
-                            <td className="flex space-x-2 space-y-2 items-center">
-                                <button className={classItem.status === "approved" ? "btn btn-outline btn-xs" : "btn btn-outline hover:btn-success btn-xs"}
-                                    onClick={() => handleApprove(classItem._id)}
-                                    disabled={classItem.status !== "pending"}
-                                >
-                                    Approve
-                                </button>
-                                <button className={classItem.status === "denied" ? "btn btn-outline btn-xs btn-error" : "btn btn-outline hover:btn-error btn-xs"}
-                                    onClick={() => handleDeny(classItem._id)}
-                                    disabled={classItem.status !== "pending"}
-                                >
-                                    Deny
-                                </button>
-                                <button className="btn btn-outline hover:btn-warning btn-xs" onClick={() => setSelectedClass(classItem)}>Send Feedback</button>
-                            </td>
+            <div>
+                <h1 className="text-center text-2xl font-semibold font-serif my-10 underline">{ allClass.length === 0 ? "Opps! No Classes Added": "Available Classes"}</h1>
+            </div>
+            {
+                allClass.length > 0 && <table className="container mx-auto overflow-x-auto table-auto w-full border-collapse border border-gray-300 font-serif">
+                    <thead className="text-sm tracking-tighter">
+                        <tr className="bg-gray-200">
+                            {tableHeaders.map((header) => (
+                                <th key={header.id}>{header.name}</th>
+                            ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody className="text-center tracking-tighter">
+                        {allClass.map((classItem) => (
+                            <tr key={classItem._id} >
+                                <td>
+                                    <img src={classItem.classImage} alt="Class" className="w-10 h-10" />
+                                </td>
+                                <td>{classItem.className}</td>
+                                <td>{classItem.instructorName}</td>
+                                <td>{classItem.instructorEmail}</td>
+                                <td>{classItem.availableSeats}</td>
+                                <td>{classItem.price}</td>
+                                <td>{classItem.status}</td>
+                                <td className="flex space-x-2 space-y-2 items-center">
+                                    <button className={classItem.status === "approved" ? "btn btn-outline btn-xs" : "btn btn-outline hover:btn-success btn-xs"}
+                                        onClick={() => handleApprove(classItem._id)}
+                                        disabled={classItem.status !== "pending"}
+                                    >
+                                        Approve
+                                    </button>
+                                    <button className={classItem.status === "denied" ? "btn btn-outline btn-xs btn-error" : "btn btn-outline hover:btn-error btn-xs"}
+                                        onClick={() => handleDeny(classItem._id)}
+                                        disabled={classItem.status !== "pending"}
+                                    >
+                                        Deny
+                                    </button>
+                                    <button className="btn btn-outline hover:btn-warning btn-xs" onClick={() => setSelectedClass(classItem)}>Send Feedback</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            }
 
             {selectedClass && (
                 <div className="w-full fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

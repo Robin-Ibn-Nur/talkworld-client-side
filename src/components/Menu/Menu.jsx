@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../CustomHooks/useAuth";
 
 const Menu = () => {
-    const { user } = useAuth()
+    const { user } = useAuth();
     const menu = <>
         <NavLink
             to="/"
@@ -25,7 +25,7 @@ const Menu = () => {
             Instructors
         </NavLink>
         <NavLink
-            to="classes"
+            to="/classPage"
             className={({ isActive }) =>
                 isActive
                     ?
@@ -61,7 +61,7 @@ const Menu = () => {
                     </NavLink>
                     <span className="inline mx-2">or</span>
                     <NavLink
-                        to="register"
+                        to="/register"
                         className={({ isActive }) =>
                             isActive
                                 ?

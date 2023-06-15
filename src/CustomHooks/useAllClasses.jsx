@@ -3,8 +3,8 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useAllClasses = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { data: allClass = [], refetch } = useQuery(['classes'], async () => {
-        const res = await axiosSecure.get('/classes')
+    const { data: allClass = [], refetch } = useQuery(['allClass'], async () => {
+        const res = await axiosSecure.get('/allClass')
         return res.data;
 
     })

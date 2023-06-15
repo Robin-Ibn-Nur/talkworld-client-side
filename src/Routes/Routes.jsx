@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
                 element: <Instructors></Instructors>
             },
             {
-                path: "classes",
+                path: "classPage",
                 element: <Classes></Classes>
             },
             {
@@ -69,7 +69,7 @@ export const router = createBrowserRouter([
             // payment route
             {
                 path: "payment/:id",
-                loader: ({ params }) => fetch(`https://server-liard-one.vercel.app/dashbord/payment/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/dashbord/payment/${params.id}`),
                 element: <StudentRoute><Payment></Payment></StudentRoute>
             },
             // student dashbord
