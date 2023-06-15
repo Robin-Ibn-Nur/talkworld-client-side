@@ -17,18 +17,18 @@
 
 ## Technology Stack
 
-- **Front-end**: React.js, HTML, CSS, JavaScript
-- **State Management**: Redux
+- **Front-end**: React.js
+- **State Management**: tanstack/react-query
 - **Routing**: React Router
 - **HTTP Requests**: Axios
 - **Authentication**: JWT (JSON Web Tokens)
 - **Database**: MongoDB
 - **Backend**: Node.js, Express.js
-- **Deployment**: Heroku
+- **Deployment**: Firebase
 
 ## Live Site
 
-Visit the live site: [TalkWorld](https://www.talkworld.com)
+Visit the live site: [TalkWorld](https://talkworld-6-2023.web.app/)
 
 ## Getting Started
 
