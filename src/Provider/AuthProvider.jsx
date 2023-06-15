@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const darkThemeStyles = {
-         backgroundColor: "#000000", color: "#FFFFFF"
+        backgroundColor: "#000000", color: "#FFFFFF"
     };
 
     const toggleTheme = () => {
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser)
             // get and set token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt-token', {
+                axios.post('https://server-liard-one.vercel.app/jwt-token', {
                     email: currentUser.email,
                 })
                     .then(data => {
