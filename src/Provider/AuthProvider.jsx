@@ -22,7 +22,7 @@ const googleProvider = new GoogleAuthProvider()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    
+
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser)
             // get and set token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt-token', {
+                axios.post('https://server-liard-one.vercel.app/jwt-token', {
                     email: currentUser.email,
                 })
                     .then(data => {
