@@ -5,7 +5,6 @@ import useSelectedClass from "../../../../CustomHooks/useSelectedClass";
 const MySelectedClass = () => {
     const [user, selectedClasses, refetch, axiosSecure] = useSelectedClass()
 
-    // TODO: Delete button doesent work properly
     const handleDelete = (id) => {
 
         Swal.fire({

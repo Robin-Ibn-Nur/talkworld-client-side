@@ -19,6 +19,7 @@ const Register = () => {
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
     const onSubmit = (data) => {
+        console.log(data);
         createUser(data?.email, data?.password)
             .then((result) => {
                 // Creating User 
@@ -27,7 +28,7 @@ const Register = () => {
                     updateUserProfile(data?.name, data?.photoUrl)
                         // update user profile
                         .then(() => {
-                            axios.post('http://localhost:5000/users', { name: data?.name, email: data?.email, photo: data?.photoUrl })
+                            axios.post('http://localhost:5000/users', { name: data?.name, email: data?.email, photo: data?.photoUrl, role: data?.role })
                                 .then(res => {
                                     console.log(res);
                                     Swal.fire({
@@ -73,6 +74,13 @@ const Register = () => {
             <div className="formbox">
                 <h3 className='font-bold'>Registration</h3>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <input
+                        type="hidden"
+                        {...register('role')}
+                        defaultValue="student"
+                        readOnly
+                        className="input w-full max-w-xs asd pl-10 mt-1"
+                    />
                     <div className='grid lg:grid-cols-2 gap-2'>
                         <div className="flex flex-col">
                             <label className="font-bold">Name</label>

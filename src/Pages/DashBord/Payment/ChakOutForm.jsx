@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 
 const ChakOutForm = ({ data }) => {
     const { price } = data;
-    console.log(data);
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();

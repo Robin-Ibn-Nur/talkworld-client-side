@@ -3,7 +3,7 @@ import Enrolled from "./Enrolled";
 
 const MyEnrolledClasses = () => {
     const [user, payments] = useEnrolledClasses()
-    console.log(payments);
+
     return (
         <div className="container font-serif">
             <h1 className="text-2xl text-center font-bold mb-5">{user?.displayName}</h1>

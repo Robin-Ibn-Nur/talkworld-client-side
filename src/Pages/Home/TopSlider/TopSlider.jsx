@@ -49,7 +49,8 @@ const TopSlider = () => {
                             backgroundImage: `url(${image.image})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            height: '500px',
+                            height: '400px',
+                            
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',

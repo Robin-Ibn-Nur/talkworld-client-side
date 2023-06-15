@@ -1,14 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
 import DashBordMenu from "../components/Menu/DashBordMenu";
 import useAuth from "../CustomHooks/useAuth";
-import useAdmin from "../CustomHooks/useAdmin";
-import useInstructor from "../CustomHooks/useInstructor";
+// import useAdmin from "../CustomHooks/useAdmin";
+// import useInstructor from "../CustomHooks/useInstructor";
 
 const Dashbord = () => {
     const { user } = useAuth();
-    const [isAdmin] = useAdmin();
-    const [isInstructor] = useInstructor();
-
+    // const [isAdmin] = useAdmin();
+    // const [isInstructor] = useInstructor();
+    
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -36,12 +36,12 @@ const Dashbord = () => {
                     </Link>
                     <hr />
                     <h3 className="font-bold texl-xl">Welcome {user?.displayName}</h3>
-                    {
+                    {/* {
                         isAdmin && <p className="font-semibold">Status: Admin</p>
                         && isInstructor && <p className="font-semibold">Status: Instructor</p>
                         || !isAdmin && !isInstructor &&
                         <p className="font-semibold">Status: Student</p>
-                    }
+                    } */}
                     <br />
                     <DashBordMenu></DashBordMenu>
                 </ul>

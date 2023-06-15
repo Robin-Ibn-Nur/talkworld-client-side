@@ -1,8 +1,10 @@
 import { useState } from "react";
 import useAllClasses from "../../../CustomHooks/useAllClasses";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../CustomHooks/useAuth";
 
 const ManageClasses = () => {
+    const { user } = useAuth();
     const [allClass, axiosSecure, refetch] = useAllClasses();
     const [selectedClass, setSelectedClass] = useState(null);
     const { register, handleSubmit, reset } = useForm();
@@ -12,7 +14,7 @@ const ManageClasses = () => {
         try {
             setIsLoading(true);
 
-            
+
             const response = await axiosSecure.patch(`/classes/approve/${id}`, { status: 'approved' });
             refetch()
             console.log(`Approving class with ID: ${id}`);
@@ -28,7 +30,7 @@ const ManageClasses = () => {
         try {
             setIsLoading(true);
 
-            
+
             const response = await axiosSecure.patch(`/classes/denied/${id}`, { status: 'denied' });
             refetch()
             console.log(`Denying class with ID: ${id}`);
@@ -41,11 +43,11 @@ const ManageClasses = () => {
     };
 
     const onSubmit = async (data) => {
-        
+
         try {
             setIsLoading(true);
 
-            
+
             const response = await axiosSecure.post(`/classes/feedback/${selectedClass._id}`, {
                 feedback: data.feedback,
             });
@@ -53,7 +55,7 @@ const ManageClasses = () => {
                 console.log("yes update successfull");
             }
             console.log('Sending feedback:', data.feedback);
-            
+
 
             setIsLoading(false);
             reset();
@@ -67,24 +69,32 @@ const ManageClasses = () => {
         setSelectedClass(null);
     };
 
+
+    const tableHeaders = [
+        { id: 1, name: 'Class Image' },
+        { id: 2, name: 'Class Name' },
+        { id: 3, name: 'Instructor Name' },
+        { id: 4, name: 'Instructor Email' },
+        { id: 5, name: 'Available Seats' },
+        { id: 6, name: 'Price' },
+        { id: 7, name: 'Status' },
+        { id: 8, name: 'Actions' },
+    ];
+
     return (
-        <div className="container mx-auto ">
-            <table className="table-auto w-full border-collapse border border-gray-300">
-                <thead className="text-sm">
+        <div className="">
+            <h3 className="text-2xl text-center mb-5 uppercase font-bold">{user?.displayName}</h3>
+            <table className="container mx-auto overflow-x-auto table-auto w-full border-collapse border border-gray-300 font-serif">
+                <thead className="text-sm tracking-tighter">
                     <tr className="bg-gray-200">
-                        <th>Class Image</th>
-                        <th>Class Name</th>
-                        <th>Instructor Name</th>
-                        <th>Instructor Email</th>
-                        <th>Available Seats</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        {tableHeaders.map((header) => (
+                            <th key={header.id}>{header.name}</th>
+                        ))}
                     </tr>
                 </thead>
-                <tbody className="text-center">
+                <tbody className="text-center tracking-tighter">
                     {allClass.map((classItem) => (
-                        <tr key={classItem._id}>
+                        <tr key={classItem._id} >
                             <td>
                                 <img src={classItem.classImage} alt="Class" className="w-10 h-10" />
                             </td>
@@ -94,20 +104,20 @@ const ManageClasses = () => {
                             <td>{classItem.availableSeats}</td>
                             <td>{classItem.price}</td>
                             <td>{classItem.status}</td>
-                            <td className="flex justify-between">
-                                <button
+                            <td className="flex space-x-2 space-y-2 items-center">
+                                <button className={classItem.status === "approved" ? "btn btn-outline btn-xs" : "btn btn-outline hover:btn-success btn-xs"}
                                     onClick={() => handleApprove(classItem._id)}
                                     disabled={classItem.status !== "pending"}
                                 >
                                     Approve
                                 </button>
-                                <button
+                                <button className={classItem.status === "denied" ? "btn btn-outline btn-xs btn-error" : "btn btn-outline hover:btn-error btn-xs"}
                                     onClick={() => handleDeny(classItem._id)}
                                     disabled={classItem.status !== "pending"}
                                 >
                                     Deny
                                 </button>
-                                <button onClick={() => setSelectedClass(classItem)}>Send Feedback</button>
+                                <button className="btn btn-outline hover:btn-warning btn-xs" onClick={() => setSelectedClass(classItem)}>Send Feedback</button>
                             </td>
                         </tr>
                     ))}

@@ -36,11 +36,11 @@ const ManageUsers = () => {
     }
 
     return (
-        <div className="container ml-5">
+        <div className="container">
             {!users ? <h1 className="text-2xl font-bold">No Users Available at the Moment</h1> :
                 <div className="overflow-x-auto">
                     <h1 className="text-2xl font-bold text-center underline mb-5">All Users are Available</h1>
-                    <table className="table-auto w-full border-collapse border border-gray-300">
+                    <table className="table-auto w-full font-serif border-collapse border border-gray-300">
                         <thead>
                             <tr className="bg-gray-200">
                                 <th className="px-4 py-2"></th>

@@ -19,7 +19,7 @@ const MyClasses = () => {
     });
     return (
         <>
-            <h2 className="text-2xl font-semibold mb-4">{user?.displayName}</h2>
+            <h2 className="text-2xl font-semibold mb-4">Instructor: {user?.displayName}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 bg-gray-100 p-4 gap-5">
 
                 {

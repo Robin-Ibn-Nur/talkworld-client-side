@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const AddClasses = () => {
-    const { user } = useAuth()
+    const { user, loading } = useAuth()
     const [axiosSecure] = useAxiosSecure()
 
     // using react hook form
@@ -15,7 +15,7 @@ const AddClasses = () => {
     const imageBB_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Upload_token}`
 
     const handleAddClassSubmit = async (data) => {
-        
+
         const newClass = {
             className: data.className,
             instructorName: user?.displayName,
@@ -69,7 +69,7 @@ const AddClasses = () => {
             <div className="w-full max-w-md p-6 bg-white rounded-md shadow-md">
                 <h2 className="text-2xl font-semibold mb-6">Instructor Dashboard</h2>
 
-                    <h3 className="text-lg font-semibold mb-2">Add a Class</h3>
+                <h3 className="text-lg font-semibold mb-2">Add a Class</h3>
                 <section>
                     <form onSubmit={handleSubmit(handleAddClassSubmit)} className="grid sm:grid-cols-1 lg:grid-cols-2 gap-5">
                         <div className="mb-4">
@@ -152,9 +152,10 @@ const AddClasses = () => {
 
                         <button
                             type="submit"
-                            className="w-full lg:col-span-2 bg-blue-500 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            disabled={handleSubmit ||loading}
+                            className="w-full lg:col-span-2 bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-orange-500 hover:text-white transition-colors duration-300"
                         >
-                            Add
+                            {loading ? 'Adding...' : 'Add'}
                         </button>
                     </form>
                 </section>

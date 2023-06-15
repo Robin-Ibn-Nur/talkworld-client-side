@@ -16,6 +16,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../Pages/DashBord/Payment/Payment";
 import PrivateRoutes from "./PrivateRoutes";
 import PaymentHistory from "../Pages/DashBord/StudentDashbord/PaymentHistory/PaymentHistory";
+import PrivateRouteLoader from "../components/Loader/PrivateRouteLoader/PrivateRouteLoader";
 
 
 
@@ -46,11 +47,16 @@ export const router = createBrowserRouter([
             {
                 path: "register",
                 element: <Register></Register>
-            }
+            },
+            
 
 
         ]
 
+    },
+    {
+        path: "loaderIcon",
+        element: <PrivateRouteLoader></PrivateRouteLoader>
     },
 
     // dashbord layout
@@ -75,27 +81,26 @@ export const router = createBrowserRouter([
             },
             {
                 path: "payMentHistory",
-                element: <PaymentHistory></PaymentHistory>
-                // element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
+                element: <PrivateRoutes><PaymentHistory></PaymentHistory></PrivateRoutes>
             },
             // instructor dashbord
             {
                 path: "addClass",
-                element: <AddClasses></AddClasses>
+                element: <PrivateRoutes><AddClasses></AddClasses></PrivateRoutes>
             },
             {
                 path: "myClasses",
-                element: <MyClasses></MyClasses>
+                element: <PrivateRoutes><MyClasses></MyClasses></PrivateRoutes>
             },
 
             // admin dashbord
             {
                 path: "manageClasses",
-                element: <ManageClasses></ManageClasses>
+                element: <PrivateRoutes><ManageClasses></ManageClasses></PrivateRoutes>
             },
             {
                 path: "manageUsers",
-                element: <ManageUsers></ManageUsers>
+                element: <PrivateRoutes><ManageUsers></ManageUsers></PrivateRoutes>
             }
         ]
     }

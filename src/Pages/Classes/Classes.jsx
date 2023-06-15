@@ -5,19 +5,19 @@ import useAuth from "../../CustomHooks/useAuth";
 import useAdmin from "../../CustomHooks/useAdmin";
 import useInstructor from "../../CustomHooks/useInstructor";
 import Swal from "sweetalert2";
+import useStudent from "../../CustomHooks/useStudent";
 
 const Classes = () => {
     useTitle("TalkWorld")
     const { user } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor()
+    const [isStudent] = useStudent()
     const [axiosSecure] = useAxiosSecure();
     const { data: classes = [] } = useQuery(['classes'], async () => {
         const res = await axiosSecure.get('/classes')
         return res.data;
     });
-    console.log("from class page", classes);
-
 
     const handleSelect = async (cls) => {
 
@@ -34,7 +34,6 @@ const Classes = () => {
         try {
             const res = await axiosSecure.post('/selectedClasses',
                 newClass);
-            console.log(res.data, newClass);
             if (res.data.insertedId) {
                 Swal.fire({
                     position: 'center',
@@ -65,7 +64,7 @@ const Classes = () => {
                         cls.status === "approved" && (
                             <div
                                 key={cls._id}
-                                className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-200' : 'bg-white'}`}
+                                className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-600 text-white' : 'bg-white'}`}
                             >
                                 <img
                                     src={cls.classImage}
@@ -85,8 +84,8 @@ const Classes = () => {
                                 {user ? (
                                     <button
                                         onClick={() => handleSelect(cls)}
-                                        disabled={!user || isAdmin || isInstructor || cls.availableSeats === 0}
-                                        className={`bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md w-full text-xl font-medium ${!user || isAdmin || isInstructor || cls.availableSeats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        disabled={!user || !isStudent || isAdmin || isInstructor || cls.availableSeats === 0}
+                                        className={`bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md w-full text-xl font-medium ${!user || !isStudent || isAdmin || isInstructor || cls.availableSeats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                         Select
                                     </button>

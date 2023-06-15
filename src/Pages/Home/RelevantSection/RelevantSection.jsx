@@ -1,4 +1,5 @@
 import 'animate.css';
+import "./style.css"
 
 const RelevantSection = () => {
     return (
