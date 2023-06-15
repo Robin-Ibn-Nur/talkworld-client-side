@@ -19,6 +19,7 @@ const Classes = () => {
         return res.data;
     });
 
+
     const handleSelect = async (cls) => {
 
         const newClass = {
@@ -78,17 +79,19 @@ const Classes = () => {
                                     Available Seats: {cls.availableSeats === 0 ? '0 (Full)' : cls.availableSeats}
                                 </p>
                                 <p className="mb-4">Price: {cls.price}</p>
+                                {/* TODO: button is not work properly */}
                                 {user ? (
                                     <button
                                         onClick={() => handleSelect(cls)}
                                         disabled={!user || !isStudent || isAdmin || isInstructor || cls.availableSeats === 0}
-                                        className={`bg-blue-700 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md w-full text-xl font-medium ${!user || !isStudent || isAdmin || isInstructor || cls.availableSeats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        className={`bg-blue-700 w-full text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-[#FF6600] hover:text-white transition-colors duration-300 ${!user || !isStudent || isAdmin || isInstructor || cls.availableSeats === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
                                     >
                                         Select
                                     </button>
                                 ) : (
                                     <p className="text-red-500">Please log in to select the course.</p>
                                 )}
+
                             </div>
                         )
 

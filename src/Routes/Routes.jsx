@@ -17,6 +17,7 @@ import Payment from "../Pages/DashBord/Payment/Payment";
 import PrivateRoutes from "./PrivateRoutes";
 import PaymentHistory from "../Pages/DashBord/StudentDashbord/PaymentHistory/PaymentHistory";
 import PrivateRouteLoader from "../components/Loader/PrivateRouteLoader/PrivateRouteLoader";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -96,11 +97,11 @@ export const router = createBrowserRouter([
             // admin dashbord
             {
                 path: "manageClasses",
-                element: <PrivateRoutes><ManageClasses></ManageClasses></PrivateRoutes>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: "manageUsers",
-                element: <PrivateRoutes><ManageUsers></ManageUsers></PrivateRoutes>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             }
         ]
     }

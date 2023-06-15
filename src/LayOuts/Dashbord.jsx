@@ -1,13 +1,20 @@
 import { Link, Outlet } from "react-router-dom";
 import DashBordMenu from "../components/Menu/DashBordMenu";
 import useAuth from "../CustomHooks/useAuth";
-// import useAdmin from "../CustomHooks/useAdmin";
-// import useInstructor from "../CustomHooks/useInstructor";
+import PageLoader from "../components/Loader/PageLoader/PageLoader";
+import useAdmin from "../CustomHooks/useAdmin";
+import useInstructor from "../CustomHooks/useInstructor";
+import useStudent from "../CustomHooks/useStudent";
 
 const Dashbord = () => {
-    const { user } = useAuth();
-    // const [isAdmin] = useAdmin();
-    // const [isInstructor] = useInstructor();
+    const { user, loading } = useAuth();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    const [isStudent] = useStudent()
+
+    if (loading) {
+        return <PageLoader></PageLoader>
+    }
     
     return (
         <div className="drawer lg:drawer-open">
@@ -36,12 +43,12 @@ const Dashbord = () => {
                     </Link>
                     <hr />
                     <h3 className="font-bold texl-xl">Welcome {user?.displayName}</h3>
-                    {/* {
+                    {
                         isAdmin && <p className="font-semibold">Status: Admin</p>
                         && isInstructor && <p className="font-semibold">Status: Instructor</p>
-                        || !isAdmin && !isInstructor &&
+                        || isStudent &&
                         <p className="font-semibold">Status: Student</p>
-                    } */}
+                    }
                     <br />
                     <DashBordMenu></DashBordMenu>
                 </ul>

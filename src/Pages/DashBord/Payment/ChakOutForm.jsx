@@ -64,12 +64,12 @@ const ChakOutForm = ({ data }) => {
                     instructorName: data.instructorName,
                     status: "paid",
                     id: data._id,
-                    student : Math.floor(Math.random() * 100) + 1
+                    student: Math.floor(Math.random() * 100) + 1
                 };
 
                 const response = await axiosSecure.post('/payments', payment);
                 console.log(payment);
-                if (response.data.insertResult.insertedId) {
+                if (response.data.insertedId) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

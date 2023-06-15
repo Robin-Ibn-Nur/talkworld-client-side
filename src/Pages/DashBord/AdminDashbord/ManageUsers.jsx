@@ -12,7 +12,9 @@ const ManageUsers = () => {
         return res.data;
 
     });
-    
+
+
+
     const handleMakeAdmin = async (user) => {
         console.log(user);
         try {
@@ -59,10 +61,10 @@ const ManageUsers = () => {
                                     </td>
                                     {userInfo.role && (
                                         <td className="flex items-center justify-center font-bold gap-2 rounded bg-gradient-to-r from-cyan-500 to-blue-500  hover:text-white px-4 py-1 border">
-                                            <AiOutlineVerified />{userInfo.role}</td>
+                                            <AiOutlineVerified />{userInfo.role === "admin" && "Admin" || userInfo.role === "instructor" && "Instructor" || "Student"}</td>
 
                                     )}
-                                    {!userInfo.role && (
+                                    {userInfo.role === "student" && (
                                         <>
                                             <td
                                                 onClick={() => handleMakeAdmin(userInfo)}

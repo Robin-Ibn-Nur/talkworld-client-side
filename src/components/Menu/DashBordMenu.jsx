@@ -2,13 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import useInstructor from "../../CustomHooks/useInstructor";
 import useAdmin from "../../CustomHooks/useAdmin";
 import useStudent from "../../CustomHooks/useStudent";
+// import { HiOutlineSelector } from "react-icons/hi";
+import { AiOutlineCheckCircle, AiOutlineFolderAdd, AiOutlineFolderOpen, AiOutlineHome, AiOutlineSelect, AiOutlineWallet } from "react-icons/ai";
+import { SiGoogleclassroom } from "react-icons/si";
+import { MdOutlineManageAccounts } from "react-icons/md";
+
 
 
 const DashBordMenu = () => {
     const [isInstructor] = useInstructor();
     const [isAdmin] = useAdmin();
     const [isStudent] = useStudent();
-    console.log(isStudent, isAdmin);
+    console.log("dashBord menu - ", isStudent, isAdmin, isInstructor);
 
     const dashbordMenu =
         <div className="flex flex-col font-serif texl-2xl">
@@ -23,7 +28,9 @@ const DashBordMenu = () => {
                                 :
                                 "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                        }>My Selected Class
+                        }>
+                        
+                        <p className="flex items-center gap-2"><AiOutlineSelect></AiOutlineSelect> My Selected Class</p>
                     </NavLink>
                     <NavLink
                         to="/dashbord/myEnrolledClass"
@@ -34,7 +41,7 @@ const DashBordMenu = () => {
                                 :
                                 "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                        }>My Enrolled Class
+                        }> <p className="flex items-center gap-2"><AiOutlineCheckCircle></AiOutlineCheckCircle>My Enrolled Class</p>
                     </NavLink>
                     <NavLink
                         to="/dashbord/payMentHistory"
@@ -45,7 +52,7 @@ const DashBordMenu = () => {
                                 :
                                 "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                        }>Payment History
+                        }> <p className="flex items-center gap-2"><AiOutlineWallet></AiOutlineWallet>Payment History</p>
                     </NavLink>
                 </>
             }
@@ -61,7 +68,9 @@ const DashBordMenu = () => {
                                 :
                                 "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                        }>Add a Class</NavLink>
+                        }>
+                        <p className="flex items-center gap-2"><AiOutlineFolderAdd></AiOutlineFolderAdd>Add a Class</p>
+                        </NavLink>
                     <NavLink
                         to="/dashbord/myClasses"
                         className={({ isActive }) =>
@@ -71,7 +80,10 @@ const DashBordMenu = () => {
                                 :
                                 "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                        }>My Classes</NavLink>
+                        }>
+                        <p className="flex items-center gap-2"><SiGoogleclassroom></SiGoogleclassroom>My Classes</p>
+                    
+                    </NavLink>
                 </>
             }
             {isAdmin && <>
@@ -84,7 +96,9 @@ const DashBordMenu = () => {
                             :
                             "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                    }>Manage Classes</NavLink>
+                    }>
+                    <p className="flex items-center gap-2"> <AiOutlineFolderOpen></AiOutlineFolderOpen>Manage Classes</p>
+                </NavLink>
                 <NavLink
                     to="/dashbord/manageUsers"
                     className={({ isActive }) =>
@@ -94,10 +108,12 @@ const DashBordMenu = () => {
                             :
                             "hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"
 
-                    }>Manage Users</NavLink>
+                    }>
+                    <p className="flex items-center gap-2"><MdOutlineManageAccounts></MdOutlineManageAccounts>Manage Users</p>
+                </NavLink>
             </>}
             <hr className="mt-5" />
-            <Link to="/" className="hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">Go Back to Home</Link>
+            <Link to="/" className="hover:bg-[#FF6600] hover:text-white transition-colors duration-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium"> <p className="flex items-center gap-2"> <AiOutlineHome></AiOutlineHome>Go Back to Home</p></Link>
         </div>
     return dashbordMenu
 };
