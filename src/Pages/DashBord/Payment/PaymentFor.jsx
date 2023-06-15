@@ -9,6 +9,7 @@ const PaymentFor = ({ data }) => {
         instructorName,
         price
     } = data;
+    console.log(data);
     return (
         <div className="bg-gradient-to-r from-blue-500 to-purple-500 py-8 sm:py-12 md:py-16">
             <div className="px-4">

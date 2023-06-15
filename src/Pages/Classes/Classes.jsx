@@ -56,8 +56,7 @@ const Classes = () => {
             <div>
                 <h1 className="text-center text-2xl font-semibold font-serif my-10 underline">{classPage.length === 0 ? "Opps! No Classes at the moment. Sorry!" :
                     <>
-                        Our Available total Classes
-                        {classPage.length}
+                        Our Available total Classes {classPage.length} are waiting for approved
                     </>}</h1>
             </div>
             

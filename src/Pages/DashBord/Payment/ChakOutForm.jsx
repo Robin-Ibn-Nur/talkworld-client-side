@@ -5,6 +5,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Swal from "sweetalert2";
 
 const ChakOutForm = ({ data }) => {
+
     const { price } = data;
     const stripe = useStripe();
     const elements = useElements();
@@ -13,6 +14,8 @@ const ChakOutForm = ({ data }) => {
     const [message, setMessage] = useState(null);
     const [clientSecret, setClientSecret] = useState('');
     const [loading, setLoading] = useState(false);
+
+    console.log(data);
 
     useEffect(() => {
         if (price > 0) {
