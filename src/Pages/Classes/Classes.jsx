@@ -58,9 +58,11 @@ const Classes = () => {
     return (
         <div>
             <div className="bg-gray-100 min-h-screen p-8 my-5">
+                {classes.map(cls => !cls.status === "approved" && <h1 key={cls._id}
+                    className="text-center text-2xl font-semibold font-serif my-10 underline">Opps! No Class Found Here</h1>)}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {classes.map((cls) => (
-                        cls.status === "approved" ? (
+                        cls.status === "approved" && (
                             <div
                                 key={cls._id}
                                 className={`bg-white hover:animate shadow-lg rounded-lg p-6 ${cls.availableSeats === 0 ? 'bg-red-200' : 'bg-white'}`}
@@ -71,10 +73,11 @@ const Classes = () => {
                                     className="w-full h-40 object-cover mb-4 rounded"
                                 />
                                 <h2 className="text-xl font-bold mb-2">{cls.className}</h2>
-                                <div className="flex justify-between">
-                                    <p className="text-gray-600 mb-4">Instructor: {cls.instructorName}</p>
-                                    <p className="text-gray-600 mb-4">Status: {cls.status}</p>
-                                </div>
+                                {/* <div className="flex justify-between">
+                                    
+                                </div> */}
+                                <p className="text-gray-600 mb-4">Instructor: <span className="font-bold">{cls.instructorName}</span></p>
+                                <p className="text-gray-600 mb-4">Status: {cls.status}</p>
                                 <p className="mb-4">
                                     Available Seats: {cls.availableSeats === 0 ? '0 (Full)' : cls.availableSeats}
                                 </p>
@@ -91,7 +94,8 @@ const Classes = () => {
                                     <p className="text-red-500">Please log in to select the course.</p>
                                 )}
                             </div>
-                        ) : <h1 key={cls._id}>Ops! No Class Found Here</h1>
+                        )
+
                     ))}
                 </div>
             </div>

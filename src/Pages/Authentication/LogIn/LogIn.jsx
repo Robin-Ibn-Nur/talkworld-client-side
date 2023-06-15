@@ -26,9 +26,7 @@ const LogIn = () => {
         
         signIn( data?.email, data?.password)
             .then((result) => {
-                // Signed in 
                 const user = result.user;
-                console.log(user);
                 navigate(from, { replace: true })
                 if (user) {
                     Swal.fire({
