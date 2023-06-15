@@ -45,7 +45,7 @@ const Dashbord = () => {
                     <h3 className="font-bold texl-xl">Welcome {user?.displayName}</h3>
                     {
                         isAdmin && <p className="font-semibold">Status: Admin</p>
-                        && isInstructor && <p className="font-semibold">Status: Instructor</p>
+                        || isInstructor && <p className="font-semibold">Status: Instructor</p>
                         || isStudent &&
                         <p className="font-semibold">Status: Student</p>
                     }
