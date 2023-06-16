@@ -5,6 +5,7 @@ import PageLoader from "../components/Loader/PageLoader/PageLoader";
 import useAdmin from "../CustomHooks/useAdmin";
 import useInstructor from "../CustomHooks/useInstructor";
 import useStudent from "../CustomHooks/useStudent";
+import { useEffect, useState } from "react";
 
 const Dashbord = () => {
     const { user, loading } = useAuth();
@@ -12,10 +13,21 @@ const Dashbord = () => {
     const [isInstructor] = useInstructor();
     const [isStudent] = useStudent()
 
-    if (loading) {
-        return <PageLoader></PageLoader>
+    const [showLoader, setShowLoader] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowLoader(false);
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading || showLoader) {
+        return (
+            <PageLoader></PageLoader>
+        );
     }
-    
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

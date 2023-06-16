@@ -40,7 +40,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: "classPage",
-                element: <Classes></Classes>
+                element: <Classes></Classes>,
+                // errorElement: <ErrorPage></ErrorPage>,
+                // errorCondition: { error: true, message: "unauthorized access" }
             },
             {
                 path: "login",

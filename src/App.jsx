@@ -5,10 +5,14 @@ import useAuth from "./CustomHooks/useAuth";
 function App() {
   const { theme, darkThemeStyles, lightThemeStyles } = useAuth()
 
+  const themeStyle = {
+    
+    ... (theme=== "dark" ? darkThemeStyles : lightThemeStyles)
+  }
 
   return (
     <div className={`transition-opacity duration-300 ${theme === "dark" ? "transition-fade" : ""
-      }`} style={theme === "dark" ? darkThemeStyles : lightThemeStyles}>
+      }`} style={themeStyle}>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

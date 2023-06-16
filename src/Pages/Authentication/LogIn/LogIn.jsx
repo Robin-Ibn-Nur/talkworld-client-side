@@ -9,6 +9,7 @@ import GoogleButton from "../../../components/GoogleButton/GoogleButton";
 import { useState } from "react";
 
 
+
 const LogIn = () => {
     const { signIn } = useAuth()
     const navigate = useNavigate()
@@ -17,7 +18,7 @@ const LogIn = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
 
     const [showPassword, setShowPassword] = useState(false);
-
+    
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };

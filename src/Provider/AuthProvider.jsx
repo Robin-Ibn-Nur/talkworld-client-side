@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser)
             // get and set token
             if (currentUser) {
-                axios.post('https://server-liard-one.vercel.app/jwt-token', {
+                axios.post('http://localhost:5000/jwt-token', {
                     email: currentUser.email,
                 })
                     .then(data => {

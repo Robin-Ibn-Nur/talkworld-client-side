@@ -71,7 +71,6 @@ const ChakOutForm = ({ data }) => {
                 };
 
                 const response = await axiosSecure.post('/payments', payment);
-                console.log(payment);
                 if (response.data.insertedId) {
                     Swal.fire({
                         position: 'center',

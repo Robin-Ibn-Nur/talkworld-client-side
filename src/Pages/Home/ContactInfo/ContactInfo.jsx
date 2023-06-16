@@ -18,7 +18,7 @@ const ContactInfo = () => {
     };
 
     return (
-        <div className="bg-gray-200 p-8 rounded-lg my-5">
+        <div className="bg-gray-200 p-8 rounded-lg my-5 rounded shadow transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-[#008080] duration-300 hover:text-black">
             <h2 className="text-2xl font-bold mb-4">Contact TalkWorld</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-4">

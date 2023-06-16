@@ -3,6 +3,8 @@ import Card from "./Card";
 
 const Instructors = () => {
     const { instructors } = useApi();
+    
+   
     return (
         <div className="bg-gray-100 min-h-screen p-8 my-5">
             <h2 className="text-center text-2xl font-semibold font-serif my-10 underline"> {instructors.length === 0

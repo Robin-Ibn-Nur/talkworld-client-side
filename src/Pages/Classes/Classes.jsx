@@ -6,14 +6,17 @@ import Swal from "sweetalert2";
 import useStudent from "../../CustomHooks/useStudent";
 import useClassPage from "../../CustomHooks/useClassPage";
 
+
 const Classes = () => {
     useTitle("TalkWorld")
     const { user } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor()
     const [isStudent] = useStudent()
-
     const { classPage, axiosSecure } = useClassPage()
+    
+    
+    
 
 
     const handleSelect = async (cls) => {
@@ -57,7 +60,9 @@ const Classes = () => {
                 <h1 className="text-center text-2xl font-semibold font-serif my-10 underline">{classPage.length === 0 ? "Opps! No Classes at the moment. Sorry!" :
                     <>
                         Our Available total Classes {classPage.length} are waiting for approved
-                    </>}</h1>
+                    </>
+                }
+                </h1>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
