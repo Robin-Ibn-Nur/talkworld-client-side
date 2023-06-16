@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             // payment route
             {
                 path: "payment/:id",
-                loader: async ({ params }) => await fetch(`http://localhost:5000/dashbord/payment/${params.id}`),
+                loader: async ({ params }) => await fetch(`https://server-liard-one.vercel.app/dashbord/payment/${params.id}`),
                 element: <Payment></Payment>
             },
             // student dashbord

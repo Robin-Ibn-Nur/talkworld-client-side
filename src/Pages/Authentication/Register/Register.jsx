@@ -15,7 +15,7 @@ const Register = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    
+
 
     const onSubmit = (data) => {
         console.log(data);
@@ -27,7 +27,7 @@ const Register = () => {
                     updateUserProfile(data?.name, data?.photoUrl)
                         // update user profile
                         .then(() => {
-                            axios.post('http://localhost:5000/users', { name: data?.name, email: data?.email, photo: data?.photoUrl, role: data?.role })
+                            axios.post('https://server-liard-one.vercel.app/users', { name: data?.name, email: data?.email, photo: data?.photoUrl, role: data?.role })
                                 .then(res => {
                                     console.log(res);
                                     Swal.fire({
